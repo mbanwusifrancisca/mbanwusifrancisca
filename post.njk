@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<article class="post-single">
+  <div class="wrap-narrow">
+    <a class="back" href="/{{ section }}/">← Back</a>
+    {% if tags %}<p class="post-tags">{{ tags | tagline }}</p>{% endif %}
+    <h1>{{ title }}</h1>
+    {% if subtitle %}<p class="post-single-sub">{{ subtitle }}</p>{% endif %}
+    <p class="post-meta">{{ date | readableDate }} · {{ readingTime or (content | readingTime) }}</p>
+    {% if featured %}<img class="post-hero-img" src="{{ featured }}" alt="" />{% elif cover %}<img class="post-hero-img" src="{{ cover }}" alt="" />{% endif %}
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>

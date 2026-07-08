@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------------------
+# AUTHENTICATION
+# Netlify Identity and Git Gateway are both deprecated, so this is set up for
+# DecapBridge — the current, free replacement. See README.md, step 3.
+# After creating a free site at https://decapbridge.com, paste the two URLs it
+# gives you below and fill in your repo.
+# ---------------------------------------------------------------------------
+backend:
+  name: git-gateway
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO      # e.g. franciscambanwusi/site
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/YOUR_SITE_ID
+  gateway_url: https://gateway.decapbridge.com
+
+# For editing on your own machine with `npm run cms` running, uncomment:
+# local_backend: true
+
+media_folder: "src/images/uploads"   # where uploaded images are stored in the repo
+public_folder: "/images/uploads"     # the URL those images resolve to on the site
+
+collections:
+  # ------------------------------- POSTS -----------------------------------
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/posts
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}}  —  {{fields.section}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: subtitle, label: Subtitle, widget: string, required: false }
+      - name: section
+        label: Section
+        widget: select
+        hint: "Which page this post appears on."
+        options:
+          - { label: "Academic Engagement", value: academic }
+          - { label: "Professional Practice", value: professional }
+          - { label: "Insights", value: insights }
+      - { name: date, label: "Publication date", widget: datetime }
+      - name: readingTime
+        label: "Estimated reading time"
+        widget: string
+        required: false
+        hint: "Optional — leave blank and it's calculated automatically (e.g. 6 min read)."
+      - { name: tags, label: Tags, widget: list, hint: "Shown Medium-style, e.g. Health Systems • Health Policy" }
+      - { name: cover, label: "Cover image", widget: image, required: false }
+      - { name: featured, label: "Featured image", widget: image, required: false }
+      - name: published
+        label: "Published"
+        widget: boolean
+        default: true
+        hint: "Turn off to save as a draft (hidden from visitors)."
+      - { name: body, label: Body, widget: markdown }
+
+  # ---------------------------- SITE SETTINGS ------------------------------
+  - name: settings
+    label: Site
+    files:
+      - name: homepage
+        label: Homepage
+        file: src/_data/settings.json
+        fields:
+          - name: portrait
+            label: "Homepage portrait"
+            widget: image
+            required: false
+            hint: "A professional photo or a looping GIF — the layout adapts either way."

@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title:
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="rise">Hi, I'm Francisca.</h1>
+      <p class="lede rise d1">If this is your first time here, chances are we met at an event, you came across something I wrote, found me through LinkedIn, or simply stumbled onto this little corner of the internet. However you got here, I'm really glad you did.</p>
+      <p class="lede rise d1">I have a biomedical engineering background that has taken a detour into health systems, health informatics, and health policy. I'm also pumped about organizations, the structures, operations, and processes that make or mar them.</p>
+      <p class="lede rise d2">If any of that sounds interesting, I'd love for you to stay awhile. And if you'd simply like to have a conversation, my inbox is always open.</p>
+    </div>
+
+    <div class="rise d2">
+      <div class="portrait-frame">
+        <img
+          class="portrait"
+          src="{{ settings.portrait or '/images/portrait.svg' }}"
+          alt="Portrait of {{ site.name }}"
+          onerror="this.onerror=null;this.src='/images/portrait.svg';"
+        />
+      </div>
+      <p class="portrait-name">{{ site.name }}</p>
+      <p class="portrait-role">{{ site.role }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="academic">
+  <div class="wrap">
+    <p class="eyebrow">Academic Engagement</p>
+    <p class="block-lede">I spend a good part of my time reading, researching, and writing about health systems, health policy, and health informatics.</p>
+    <p class="block-lede">Here you'll find my reflections, analyses, and ongoing exploration of the ideas shaping my academic journey.</p>
+    <p class="cta-row"><a class="btn btn-primary" href="/academic/">Read my work →</a></p>
+  </div>
+</section>
+
+<section class="block" id="professional">
+  <div class="wrap">
+    <p class="eyebrow">Professional Practice</p>
+    <p class="block-lede">I've always been fascinated by organizational leadership. I am interested in organizational management, operations, and process improvement because I believe that successful organizations rarely succeed by accident.</p>
+    <p class="block-lede">I share what I am learning, have learned, experienced, and just my thoughts.</p>
+    <p class="cta-row"><a class="btn btn-primary" href="/professional/">Read my work →</a></p>
+  </div>
+</section>
+
+<section class="block" id="newsletter">
+  <div class="wrap">
+    <p class="block-lede">I'd love to occasionally send you thoughtful updates whenever I have something worth sharing.</p>
+    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="newsletter-form">
+      <input type="hidden" name="form-name" value="newsletter" />
+      <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <input type="email" name="email" placeholder="Email" aria-label="Email" required />
+      <button class="btn btn-primary" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>

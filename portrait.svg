@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#faf6ef"/>
+  <circle cx="200" cy="200" r="66" fill="#eadfce"/>
+  <path d="M110 360c0-52 40-92 90-92s90 40 90 92" fill="#eadfce"/>
+  <text x="50%" y="430" fill="#b8ad9c" font-family="Georgia, serif" font-size="20" text-anchor="middle">Your portrait</text>
+  <text x="50%" y="458" fill="#c9c0b1" font-family="Georgia, serif" font-size="13" text-anchor="middle">Upload in the CMS → Site → Homepage</text>
+</svg>

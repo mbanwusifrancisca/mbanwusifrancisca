@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — Health systems, policy, and quiet writing{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}" />
+  <meta name="author" content="{{ site.name }}" />
+  <meta property="og:title" content="{{ site.name }} — Health systems, policy, and quiet writing" />
+  <meta property="og:description" content="{{ site.description }}" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="bar">
+      <a class="wordmark" href="/">{{ site.name }}</a>
+      <nav class="site" aria-label="Primary">
+        <a href="/academic/">Academic Engagement</a>
+        <a href="/professional/">Professional Practice</a>
+        <a href="/insights/">Insights</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© {{ year }} {{ site.name }}</p>
+    </div>
+  </footer>
+</body>
+</html>

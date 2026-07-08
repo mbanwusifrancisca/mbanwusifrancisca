@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: Professional Practice
+permalink: /professional/
+---
+<section class="block first">
+  <div class="wrap-narrow">
+    <p class="eyebrow">Professional Practice</p>
+    <p class="block-lede">This section brings together my work and reflections on organizational management, operations, and process improvement. Some pieces explore practical frameworks, while others analyze real organizations or examine the systems that help teams do their best work.</p>
+
+    <div class="post-list">
+      {%- set count = 0 -%}
+      {%- for post in collections.posts -%}
+        {%- if post.data.section == "professional" -%}
+          {%- set count = count + 1 -%}
+          <a class="post-card" href="{{ post.url }}">
+            {% if post.data.tags %}<p class="post-tags">{{ post.data.tags | tagline }}</p>{% endif %}
+            <h3 class="post-title">{{ post.data.title }}</h3>
+            {% if post.data.subtitle %}<p class="post-sub">{{ post.data.subtitle }}</p>{% endif %}
+            <p class="post-meta">{{ post.date | readableDate }} · {{ post.data.readingTime or (post.templateContent | readingTime) }}</p>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if count == 0 -%}<p class="empty">Posts will appear here.</p>{%- endif -%}
+    </div>
+  </div>
+</section>
